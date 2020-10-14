@@ -6,3 +6,4 @@ C:\Users\vandr\Desktop\Новая папка\Lab_5\lab_5_1\obj\Debug\lab_5_1.exe
 C:\Users\vandr\Desktop\Новая папка\Lab_5\lab_5_1\obj\Debug\lab_5_1.pdb
 C:\Users\vandr\Desktop\Новая папка\Lab_5\lab_5_1\obj\Debug\lab_5_1.csproj.GenerateResource.cache
 C:\Users\vandr\Desktop\Новая папка\Lab_5\lab_5_1\obj\Debug\lab_5_1.Program.resources
+C:\Users\vandr\Desktop\Новая папка\Lab_5\lab_5_1\obj\Debug\lab_5_1.Properties.Resources.resources

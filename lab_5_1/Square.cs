@@ -72,32 +72,7 @@ namespace lab_5_1
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"{SideLength}");
             Console.ForegroundColor = ConsoleColor.Gray;
-        }
-        private PictureBox picture;
-        public void DrawSquare(int x1, int y1, int sidelength)
-        {
-            Bitmap bmp = new Bitmap(picture.Width, picture.Height);
-            Graphics graph = Graphics.FromImage(bmp);
-            Pen pen = new Pen(Color.Magenta);
-            //Font font = new Font(Calibri, );
-            //graph.DrawString("A(х1,у1)",)
-            graph.DrawRectangle(pen, x1, y1, sidelength, sidelength);
-            picture.Image = bmp;
-        }
-        public void Moves(int x1, int y1, int sidelength)
-        {
-            Console.WriteLine("Чтобы двигать нарисованный квадрат влево-вправо, нажимайте стрелочки.\n" +
-                "Чтобы поворачивать квадрат, введите 'rotate' и нажимайте стрелочки");
-            int k = x1;
-            int j = y1;
-            if (Console.ReadKey().Key == ConsoleKey.LeftArrow)
-            {
-                k += 1;
-                j += 1;
 
-                Program.DrawSquare(k, j, sidelength);
-            }
         }
-
     }
 }

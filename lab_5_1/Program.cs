@@ -4,23 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
 using System.Drawing;
 
 namespace lab_5_1
 {
     public partial class Program : Form
     {
-        private PictureBox picture;
+        public PictureBox picture;
 
         public Program()
         {
-            
             Square square1 = new Square();
             square1.InputSquare();
             square1.Information();
             InitializeComponent();
-            square1.DrawSquare(square1.X1, square1.Y1, square1.SideLength);
+            DrawSquare(square1);
+
         }
         static void Main(string[] args)
         {
@@ -29,30 +28,44 @@ namespace lab_5_1
             Application.Run(new Program());
 
         }
+        void DrawSquare(Square square)
+        {
+            Bitmap bmp = new Bitmap(picture.Width, picture.Height);
+            Graphics graph = Graphics.FromImage(bmp);
+            Pen pen1 = new Pen(Color.Magenta);
 
+            graph.DrawRectangle(pen1, square.X1+304, -square.Y1+227, square.SideLength, square.SideLength);
+            picture.Image = bmp;
+        }
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Program));
             this.picture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.SuspendLayout();
             // 
             // picture
             // 
-            this.picture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picture.BackColor = System.Drawing.Color.Transparent;
             this.picture.Location = new System.Drawing.Point(0, 0);
             this.picture.Name = "picture";
-            this.picture.Size = new System.Drawing.Size(362, 261);
+            this.picture.Size = new System.Drawing.Size(608, 456);
             this.picture.TabIndex = 0;
             this.picture.TabStop = false;
             // 
             // Program
             // 
-            this.ClientSize = new System.Drawing.Size(362, 261);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(608, 456);
             this.Controls.Add(this.picture);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "Program";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DrawSquare";
             this.Load += new System.EventHandler(this.Program_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Program_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
             this.ResumeLayout(false);
 
@@ -63,6 +76,26 @@ namespace lab_5_1
 
         }
 
-        
+        public void Program_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+            if (e.KeyValue == (char)Keys.Left)
+            {
+                picture.Left = picture.Left - 1;
+                //Console.WriteLine($"А({};{Location})");
+            }
+            else if (e.KeyValue == (char)Keys.Right)
+            {
+                picture.Left = picture.Left + 1;
+            }
+            else if (e.KeyValue == (char)Keys.Up)
+            {
+                picture.Top = picture.Top-1;
+            }
+            else if (e.KeyValue == (char)Keys.Down)
+            {
+                picture.Top = picture.Top + 1;
+            } 
+        } 
     }
 }
