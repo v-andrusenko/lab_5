@@ -71,7 +71,7 @@ namespace lab_5_2
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write("Длина образующей L: ");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{GeneratrixLength()}");
+            Console.WriteLine("{0: 0.000}",GeneratrixLength());
             Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
