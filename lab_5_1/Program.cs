@@ -19,7 +19,9 @@ namespace lab_5_1
             square1.Information();
             InitializeComponent();
             DrawSquare(square1);
-
+            Console.WriteLine("\nЧтобы перемещать квадрат, активируйте окно с рисунком и:\n" +
+                "- нажимайте стрелочки для движения по оси Х и У\n" +
+                "- нажимайте N и М для поворота\n");
         }
         static void Main(string[] args)
         {
@@ -82,7 +84,7 @@ namespace lab_5_1
             if (e.KeyValue == (char)Keys.Left)
             {
                 picture.Left = picture.Left - 1;
-                //Console.WriteLine($"А({};{Location})");
+                
             }
             else if (e.KeyValue == (char)Keys.Right)
             {
@@ -96,6 +98,18 @@ namespace lab_5_1
             {
                 picture.Top = picture.Top + 1;
             } 
+            else if (e.KeyValue == (char)Keys.N)
+            {
+                Image img = picture.Image;
+                img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                picture.Image = img;
+            }
+            else if (e.KeyValue == (char)Keys.M)
+            {
+                Image img = picture.Image;
+                img.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                picture.Image = img;
+            }
         } 
     }
 }
